@@ -58,7 +58,7 @@
         </Value>
     </Setting>
     <Setting Name="Fred::Active" Required="0" Valid="1">
-        <Description Translatable="1">Defines if fred is visible or hidden.</Description>
+        <Description Translatable="1">Defines if Fred is visible or hidden.</Description>
         <Navigation>Core::Fred</Navigation>
         <Value>
             <Item ValueType="Select" SelectedID="1">
@@ -68,7 +68,7 @@
         </Value>
     </Setting>
     <Setting Name="Fred::Module###Console" Required="0" Valid="1">
-        <Description Translatable="1">Turn on if you want to use the fred console.</Description>
+        <Description Translatable="1">Turn on if you want to use the Fred console.</Description>
         <Navigation>Core::Fred</Navigation>
         <Value>
             <Hash>
@@ -77,7 +77,7 @@
         </Value>
     </Setting>
     <Setting Name="Fred::Module###SQLLog" Required="0" Valid="1">
-        <Description Translatable="1">Turn on if you want an realtime SQL statement log function.</Description>
+        <Description Translatable="1">Turn on if you want a real-time SQL statement log function.</Description>
         <Navigation>Core::Fred</Navigation>
         <Value>
             <Hash>
@@ -87,7 +87,7 @@
         </Value>
     </Setting>
     <Setting Name="Fred::Module###HTMLCheck" Required="0" Valid="1">
-        <Description Translatable="1">Turn on if you want an realtime HTML-checker.</Description>
+        <Description Translatable="1">Turn on if you want a real-time HTML checker.</Description>
         <Navigation>Core::Fred</Navigation>
         <Value>
             <Hash>
