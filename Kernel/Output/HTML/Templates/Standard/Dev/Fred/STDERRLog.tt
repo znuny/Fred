@@ -1,0 +1,21 @@
+# --
+# Copyright (C) 2001-2021 OTRS AG, https://otrs.com/
+# Copyright (C) 2012 Znuny GmbH, https://znuny.com/
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+<div id="FredBoxSTDERRLog" class="FredBox">
+    <h1>
+        [% Translate("STDERR Log") | html %]
+        <span class="FredToolBar">
+            <i class="fa fa-minus FredMinimize" title="Minimize"></i>
+            <i class="fa fa-times FredClose" title="Close"></i>
+        </span>
+    </h1>
+    <div id="FredSTDERRLog" class="FredBoxContent">
+        <pre class="FredMonoSpace">[% Data.HTMLLines | html %]</pre>
+    </div>
+</div>

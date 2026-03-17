@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <otrs_package version="1.0">
     <Name>Fred</Name>
-    <Version>6.0.0</Version>
+    <Version>7.3.0</Version>
     <Framework>7.3.x</Framework>
+    <Framework>7.2.x</Framework>
+    <Framework>7.1.x</Framework>
+    <Framework>7.0.x</Framework>
+    <Framework>6.5.x</Framework>
+    <Framework>6.4.x</Framework>
+    <Framework>6.0.x</Framework>
     <Vendor>Znuny GmbH</Vendor>
     <URL>http://znuny.com/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
@@ -10,49 +16,48 @@
     <Description Lang="de">Ein Werkzeug welches den Entwickler bei der Entwicklung unterstützen soll.</Description>
     <Description Lang="hu">Egy eszköz a fejlesztők munkájának támogatásához.</Description>
     <Filelist>
-        <File Permission="660" Location="doc/en/Fred.xml" />
-        <File Permission="660" Location="Kernel/Config/Files/AAAFred.pm" />
-        <File Permission="660" Location="Kernel/Config/Files/XML/Fred.xml" />
-        <File Permission="660" Location="Kernel/Modules/DevelFred.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/FilterContent/Fred.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/ConfigLog.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/ConfigSwitch.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/Console.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/EnvDump.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/HTMLCheck.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/JSLint.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/SessionDump.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/STDERRLog.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/SQLLog.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Fred/TranslationDebug.pm" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredConfigLog.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredConfigSwitch.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredConsole.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredContainer.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredEnvDump.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredHTMLCheck.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredJSLint.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredSessionDump.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredSetting.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredSQLLog.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredSTDERRLog.tt" />
-        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/DevelFredTranslationDebug.tt" />
-        <File Permission="660" Location="Kernel/System/Fred/ConfigLog.pm" />
-        <File Permission="660" Location="Kernel/System/Fred/ConfigSwitch.pm" />
-        <File Permission="660" Location="Kernel/System/Fred/Console.pm" />
-        <File Permission="660" Location="Kernel/System/Fred/EnvDump.pm" />
-        <File Permission="660" Location="Kernel/System/Fred/HTMLCheck.pm" />
-        <File Permission="660" Location="Kernel/System/Fred/JSLint.pm" />
-        <File Permission="660" Location="Kernel/System/Fred/SessionDump.pm" />
-        <File Permission="660" Location="Kernel/System/Fred/SQLLog.pm" />
-        <File Permission="660" Location="Kernel/System/Fred/STDERRLog.pm" />
-        <File Permission="660" Location="Kernel/System/Fred/TranslationDebug.pm" />
-        <File Permission="660" Location="var/httpd/htdocs/js/Core.Fred.js" />
-        <File Permission="660" Location="var/httpd/htdocs/js/Core.Fred.HTMLCheck.js" />
-        <File Permission="660" Location="var/httpd/htdocs/js/Core.Fred.JSLint.js" />
-        <File Permission="660" Location="var/httpd/htdocs/js/thirdparty/jslint/jslint.js" />
-        <File Permission="660" Location="var/httpd/htdocs/skins/Agent/default/css/Core.Fred.css" />
-        <File Permission="660" Location="var/httpd/htdocs/skins/Customer/default/css/Core.Fred.css" />
+        <File Permission="660" Location="Kernel/Config/Files/AAAFred.pm"/>
+        <File Permission="660" Location="Kernel/Config/Files/XML/Fred.xml"/>
+        <File Permission="660" Location="Kernel/Modules/Fred.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Dev/Fred/ConfigLog.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Dev/Fred/ConfigSwitch.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Dev/Fred/Console.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Dev/Fred/EnvLog.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Dev/Fred/HTMLCheck.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Dev/Fred/SessionLog.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Dev/Fred/SQLLog.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Dev/Fred/STDERRLog.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Dev/Fred/TranslationLog.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/FilterContent/Dev/Fred.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/ConfigLog.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/ConfigSwitch.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/Console.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/Container.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/EnvLog.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/HTMLCheck.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/SessionLog.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/Setting.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/SQLLog.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/STDERRLog.tt"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Templates/Standard/Dev/Fred/TranslationLog.tt"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/Base.pm"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/ConfigLog.pm"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/ConfigSwitch.pm"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/Console.pm"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/EnvLog.pm"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/HTMLCheck.pm"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/SessionLog.pm"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/SQLLog.pm"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/STDERRLog.pm"/>
+        <File Permission="660" Location="Kernel/System/Dev/Fred/TranslationLog.pm"/>
+        <File Permission="660" Location="var/httpd/htdocs/js/Core.Dev.Fred.ConfigSwitch.js"/>
+        <File Permission="660" Location="var/httpd/htdocs/js/Core.Dev.Fred.HTMLCheck.js"/>
+        <File Permission="660" Location="var/httpd/htdocs/js/Core.Dev.Fred.js"/>
+        <File Permission="660" Location="var/httpd/htdocs/js/Core.Dev.Fred.JSLint.js"/>
+        <File Permission="660" Location="var/httpd/htdocs/js/Core.Dev.Fred.SQLLog.js"/>
+        <File Permission="660" Location="var/httpd/htdocs/js/thirdparty/jslint/jslint.js"/>
+        <File Permission="660" Location="var/httpd/htdocs/skins/Agent/default/css/Core.Dev.Fred.css"/>
+        <File Permission="660" Location="var/httpd/htdocs/skins/Customer/default/css/Core.Dev.Fred.css"/>
     </Filelist>
     <IntroInstall Type="pre" Title="Fred Features" Lang="en"><![CDATA[
         <br/>
@@ -74,9 +79,9 @@
                     list all SQL statements of the current request </li>
         <li> ConfigLog: <br/>
                     list all ConfigGet requests, indicating their frequency </li>
-        <li> SessionDump: <br/>
+        <li> SessionLog: <br/>
                     show the current content of the serverside session </li>
-        <li> EnvDump: <br/>
+        <li> EnvLog: <br/>
                     show info about the environment of the layout object </li>
         </ul>
         <br/>
@@ -115,9 +120,9 @@
                     az aktuális kérés összes SQL-lekérdezésének felsorolása </li>
         <li> ConfigLog: <br/>
                     az összes ConfigGet kérés felsorolása, jelezve azok gyakoriságát </li>
-        <li> SessionDump: <br/>
+        <li> SessionLog: <br/>
                     a kiszolgáló oldali munkamenet aktuális tartalmának megjelenítése </li>
-        <li> EnvDump: <br/>
+        <li> EnvLog: <br/>
                     információk megjelenítése a megjelenítő objektum környezetéről </li>
         </ul>
         <br/>

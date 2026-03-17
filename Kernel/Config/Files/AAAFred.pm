@@ -15,15 +15,17 @@ package Kernel::Config::Files::AAAFred;
 
 use strict;
 use warnings;
+use utf8;
+
 no warnings 'redefine';    ## no critic
 
 use vars qw($Self);
 
 use Kernel::Config::Defaults;
 use Kernel::Language;
-use Kernel::System::Fred::ConfigLog;
-use Kernel::System::Fred::SQLLog;
-use Kernel::System::Fred::TranslationDebug;
+use Kernel::System::Dev::Fred::ConfigLog;
+use Kernel::System::Dev::Fred::SQLLog;
+use Kernel::System::Dev::Fred::TranslationLog;
 
 our $ObjectManagerDisabled = 1;
 
@@ -33,16 +35,19 @@ sub Load {
     if ( $ENV{HTTP_USER_AGENT} ) {
 
         # check if the needed path is available
-        my $Path = $Self->{Home} . '/var/fred';
+        my $Path = $Self->{Home} . '/var/log/dev/fred';
         if ( !-e $Path ) {
             mkdir $Path;
         }
 
-        my $File = $Self->{Home} . '/var/fred/STDERR.log';
+        my $File = $Self->{Home} . '/var/log/dev/fred/STDERR.log';
 
-        # check log file size
-        if ( -s $File > 20 * 1024 * 1024 ) {
-            unlink $File;
+        if ( -f $File ) {
+
+            # check log file size
+            if ( -s $File > 20 * 1024 * 1024 ) {
+                unlink $File;
+            }
         }
 
         # move STDOUT to tmp file
@@ -71,8 +76,8 @@ sub Load {
                 }
 
                 if ( !$Self->{Translation}->{$What} ) {
-                    $Self->{TranslationDebugObject} ||= Kernel::System::Fred::TranslationDebug->new();
-                    $Self->{TranslationDebugObject}->InsertWord( What => $What );
+                    $Self->{TranslationLogObject} ||= Kernel::System::Dev::Fred::TranslationLog->new();
+                    $Self->{TranslationLogObject}->InsertWord( What => $What );
                 }
 
                 return $Result;
@@ -86,8 +91,8 @@ sub Load {
                 my ( $Self, $Text, @Parameters ) = @_;
 
                 if ( $Text && !$Self->{Translation}->{$Text} ) {
-                    $Self->{TranslationDebugObject} ||= Kernel::System::Fred::TranslationDebug->new();
-                    $Self->{TranslationDebugObject}->InsertWord( What => $Text );
+                    $Self->{TranslationLogObject} ||= Kernel::System::Dev::Fred::TranslationLog->new();
+                    $Self->{TranslationLogObject}->InsertWord( What => $Text );
                 }
 
                 return $Self->TranslateOriginal( $Text, @Parameters );
@@ -100,7 +105,7 @@ sub Load {
             *Kernel::System::DB::Prepare         = sub {
                 my ( $Self, %Param ) = @_;
 
-                $Self->{SQLLogObject} ||= Kernel::System::Fred::SQLLog->new();
+                $Self->{SQLLogObject} ||= Kernel::System::Dev::Fred::SQLLog->new();
                 $Self->{SQLLogObject}->PreStatement(%Param);
                 my $Result = $Self->PrepareOriginal(%Param);
                 $Self->{SQLLogObject}->PostStatement(%Param);
@@ -115,7 +120,7 @@ sub Load {
             *Kernel::System::DB::Do         = sub {
                 my ( $Self, %Param ) = @_;
 
-                $Self->{SQLLogObject} ||= Kernel::System::Fred::SQLLog->new();
+                $Self->{SQLLogObject} ||= Kernel::System::Dev::Fred::SQLLog->new();
                 $Self->{SQLLogObject}->PreStatement(%Param);
                 my $Result = $Self->DoOriginal(%Param);
                 $Self->{SQLLogObject}->PostStatement(%Param);
@@ -130,7 +135,7 @@ sub Load {
             *Kernel::Config::Defaults::Get         = sub {
                 my ( $Self, $What ) = @_;
 
-                $Self->{ConfigLogObject} ||= Kernel::System::Fred::ConfigLog->new();
+                $Self->{ConfigLogObject} ||= Kernel::System::Dev::Fred::ConfigLog->new();
                 my $Caller = caller();
                 if ( $Self->{$What} ) {
                     $Self->{ConfigLogObject}->InsertWord(

@@ -1,0 +1,50 @@
+# --
+# Copyright (C) 2001-2021 OTRS AG, https://otrs.com/
+# Copyright (C) 2012 Znuny GmbH, https://znuny.com/
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+
+<div class="LayoutPopup ARIARoleMain FredSettings">
+
+    <div class="Header">
+        <h1>
+            [% Translate("Fred Settings") | html %]
+        </h1>
+        <div>
+            <a class="CancelClosePopup btn-cancel-ghost btn-main btn-width-md" href="#">
+                [% Translate("Close and Back") | html %]
+            </a>
+        </div>
+    </div>
+    <div class="Content table-widget-parent">
+        <div class="WidgetSimple inline-filter-field card">
+            <div class="Content">
+                <form action="[% Env("CGIHandle") %]" method="post" enctype="multipart/form-data" name="FredSetting">
+                    <input type="hidden" name="Action" value="Fred" />
+                    <input type="hidden" name="Subaction" value="SettingAction" />
+                    <ul class="FredSettings">
+            [% RenderBlockStart("FredModule") %]
+                        <li>
+                            <label for="[% Data.FredModule | html %]">
+                                <input type="checkbox" name="FredModule" id="[% Data.FredModule | html %]" value="[% Data.FredModule | html %]" [% Data.Checked %]/>
+                                [% Data.FredModule | html %]
+                                <span>
+                                    [% Data.Description %]
+                                </span>
+                            </label>
+            [% RenderBlockStart("Config") %]
+                            <a href="[% Env("Baselink") %]Action=AdminSystemConfiguration;Subaction=View;Setting=Fred###Module###[% Data.ModuleName %];" title="Settings" class="FredSettingsLink" target="_blank"><i class="fa fa-cog"></i></a>
+            [% RenderBlockEnd("Config") %]
+                        </li>
+            [% RenderBlockEnd("FredModule") %]
+                    </ul>
+                    <button type="submit" class="CallForAction btn-main btn-primary" value="[% Translate("Save") | html %]"><span>[% Translate("Save") | html %]</span></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

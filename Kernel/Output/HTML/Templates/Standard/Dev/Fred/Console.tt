@@ -1,0 +1,51 @@
+# --
+# Copyright (C) 2001-2021 OTRS AG, https://otrs.com/
+# Copyright (C) 2012 Znuny GmbH, https://znuny.com/
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+<style type="text/css" scoped="">
+.FredContainer {
+    width: [% Data.ConsoleWidth %];
+    -moz-opacity: [% Data.ConsoleOpacity %];
+    -webkit-opacity: [% Data.ConsoleOpacity %];
+    opacity: [% Data.ConsoleOpacity %];
+}
+
+.FredBox h1, .FredBox.Expanded h1 {
+    background-color: [% Data.BackgroundColor | html %];
+}
+
+[% IF Config("Data.ConsoleHeight") %]
+.FredBoxContent {
+    max-height: [% Data.ConsoleHeight %];
+}
+[% END %]
+</style>
+
+<div class="FredBox">
+    <h1>
+        [% Translate("Fred Console") | html %]
+        <span class="FredToolBar">
+[% RenderBlockStart("Setting") %]
+            <i class="fa fa-cog FredSettings" data-url="[% Env('Baselink') %]Action=Fred;Subaction=Setting"></i>
+[% RenderBlockEnd("Setting") %]
+            <i class="fa fa-minus FredMinimize" title="Minimize"></i>
+            <i class="fa fa-times FredCloseAll" title="Close all"></i>
+        </span>
+    </h1>
+    <div class="FredBoxContent FredElementList" id="FredConsole">
+        <span>System <strong>[% Data.SystemName | html %]</strong></span>
+        <span class="[% Data.BranchClass | html %]">Branch <strong>[% Data.BranchName | html %]</strong></span>
+        <span>Framework <strong>[% Data.FrameworkVersion | html %]</strong></span>
+        <span>mod_perl <strong>[% Data.ModPerl | html %]</strong></span>
+        <span>Perl <strong>[% Data.Perl | html %]</strong></span>
+        <span>
+            <i class="fa fa-external-link"></i> Open <a href="https://github.com/znuny/Znuny/issues/new/choose" target="_blank">Issue</a> in GitHub
+        </span>
+        [% Data.ActiveModules %]
+    </div>
+</div>

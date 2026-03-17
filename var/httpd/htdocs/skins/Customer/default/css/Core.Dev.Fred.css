@@ -1,0 +1,348 @@
+/*
+Copyright (C) 2001-2021 OTRS AG, https://otrs.com/
+Copyright (C) 2012 Znuny GmbH, https://znuny.com/
+
+This software comes with ABSOLUTELY NO WARRANTY. For details, see
+the enclosed file COPYING for license information (GPL). If you
+did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+*/
+
+/**
+ * @package     Skin "Default"
+ * @section     Fred CSS
+ */
+
+.FredContainer {
+    position: fixed;
+    top: 33px;
+    right: 16px;
+    z-index: 5000;
+}
+
+.FredContainer:hover {
+    -webkit-opacity: 1.0 !important;
+    -moz-opacity: 1.0 !important;
+    opacity: 1.0 !important;
+}
+
+.FredBox {
+    -webkit-box-shadow: 1px 1px 3px #777;
+    -moz-box-shadow: 1px 1px 3px #777;
+    -ms-box-shadow: 1px 1px 3px #777;
+    -o-box-shadow: 1px 1px 3px #777;
+    box-shadow: 1px 1px 3px #777;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.FredBoxContent {
+    padding:5px;
+    overflow-y: auto;
+    border: 1px solid #aaa;
+    border-top: 0px;
+    display: none;
+}
+
+.FredBoxContent.Expanded {
+    display: block;
+}
+
+.FredBoxContent .FredQuickSearch {
+    display: none;
+    background-color: #ccc;
+    padding: 5px;
+    -webkit-box-shadow: inset 1px 1px 3px #777, inset -1px -1px 3px #777;
+    -moz-box-shadow: inset 1px 1px 3px #777, inset -1px -1px 3px #777;
+    -ms-box-shadow: inset 1px 1px 3px #777, inset -1px -1px 3px #777;
+    -o-box-shadow: inset 1px 1px 3px #777, inset -1px -1px 3px #777;
+    box-shadow: inset 1px 1px 3px #777, inset -1px -1px 3px #777;
+    position: relative;
+}
+
+.FredBoxContent .FredQuickSearch input {
+    display: block;
+    width: 98%;
+    border: 1px solid #aaa;
+    font-size: 11px;
+}
+
+.FredBoxContent .FredQuickSearch i {
+    position: absolute;
+    right: 3.5%;
+    top: 13px;
+    font-size: 12px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.FredBoxContent .FredQuickSearch:hover i {
+    color: #333;
+}
+
+.FredBox .strong,
+.FredBox .strong * {
+    font-weight: bold;
+}
+
+.FredBox.Expanded {
+    height: 120px;
+    overflow: auto;
+    resize: auto;
+}
+
+.FredBox h1 {
+    font-size: 12px;
+    background-color: var(--primary-color);
+    color: #fff;
+    margin: 0px;
+    padding: 6px 7px;
+    cursor: move;
+    overflow: hidden;
+}
+
+.FredBox.Expanded h1 {
+    background: var(--primary-color);
+}
+
+
+.FredBox.Collapsed {
+   height: fit-content;
+}
+
+.FredBox.Collapsed h1 {
+    background-color: #888;
+}
+
+.FredBox h1 .FredToolBar {
+    float: right;
+}
+
+.FredBox h1 .FredToolBar i {
+    font-size: 13px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.FredJSLintSuccessful {
+    color: green;
+}
+
+.FredJSLintError {
+    margin-bottom: 6px;
+    font-size: 11px;
+}
+
+body #FredHTMLCheckResults p ,
+body #FredHTMLCheckResults pre,
+body #FredJSLintScripts p ,
+body #FredJSLintScripts pre {
+    margin: 0px;
+    padding: 0px;
+}
+
+.FredSettings h1 {
+    font-size: 14px;
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+}
+
+.FredSettings ul {
+    margin-bottom: 10px;
+}
+
+.FredSettings .CallForAction {
+    margin: 0px auto;
+    display: block;
+}
+
+.FredSettings li {
+    margin-bottom: 2px;
+    font-size: 11px;
+    position: relative;
+}
+
+.FredSettings li span {
+    color: #777777;
+    display: block;
+    font-size: 10px;
+    padding-left: 23px;
+    margin-bottom: 3px;
+    line-height: 130%;
+}
+
+.FredSettings li label {
+    display: block;
+    padding: 3px 20px 3px 5px;
+    background-color: #eee;
+}
+
+.FredSettings li:hover label {
+    background-color: #ddd;
+}
+
+.FredSettings li a {
+    color: #000;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    font-size: 13px;
+}
+
+table.FredTableDefault {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.FredTableDefault th {
+    font-weight: bold;
+}
+
+table.FredTableDefault td,
+table.FredTableDefault th {
+    padding: 5px 5px;
+    border-bottom: 1px solid #ccc;
+    font-size: 11px;
+    border-right: 1px solid #ddd;
+}
+
+table.FredTableDefault th {
+    background-color: #ddd;
+    border-right-color: #aaa;
+}
+
+table.FredTableDefault tr:nth-child(odd) td {
+    background-color: #eee;
+}
+
+table.FredTableDefault tr:last-child td {
+    border-bottom: 0px;
+}
+
+.FredBox .FredElementList {
+    padding: 5px 3px 0px 5px;
+}
+
+.FredElementList span {
+    font-size: 11px;
+    display: inline-block;
+    padding: 3px 5px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin: 0px 3px 5px 0px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.FredElementList span i {
+    position: relative;
+    top: 1px;
+}
+
+.FredElementList span a {
+    text-decoration: underline;
+    color: #000;
+}
+
+.FredElementList span a:hover {
+    text-decoration: none;
+}
+
+.FredElementList span.Warning {
+    background-color: red;
+    color: #fff;
+    border-color: #CE0000;
+}
+
+.FredMonoSpace {
+    font-family: monospace;
+    font-size: 11px;
+    line-height: 130%;
+    padding: 10px;
+    white-space: pre-line;
+}
+
+table.FredSwitchTable td {
+    padding: 3px;
+    vertical-align: middle;
+}
+
+table.FredSwitchTable td:first-child {
+    width: 40px;
+}
+
+table.FredSwitchTable td:last-child {
+    padding-left: 10px;
+}
+
+.FredSwitch a {
+    display: block;
+    position: relative;
+    width: 30px;
+    border: 1px solid #888;
+    height: 16px;
+    border-radius: 10px;
+    margin: 0px auto;
+    background-color: #eee
+}
+
+.FredSwitch a span {
+    width: 15px;
+    height: 14px;
+    border-radius: 13px;
+    border: 1px solid #333;
+    display: block;
+    position: absolute;
+    left: -1px;
+    top: 0px;
+    background-color: #fff;
+    -webkit-transition: all 0.2s ease-in;
+     -moz-transition: all 0.2s ease-in;
+       -o-transition: all 0.2s ease-in;
+          transition: all 0.2s ease-in;
+}
+
+.FredSwitch.On a {
+    background-color: #777;
+    border-color: #333;
+}
+
+.FredSwitch.On span {
+    right: -1px;
+    left: auto;
+}
+
+.FredToggleContainer {
+    display:  flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a#FredToggleContainerLink {
+    font-size: 35px;
+    font-weight:bold;
+    color: var(--gray-medium);
+    z-index: 1000;
+}
+
+a#FredToggleContainerLink.FredActive {
+    font-size: 35px;
+    font-weight:bold;
+    color: var(--primary-color);
+}
+
+a#FredToggleContainerLink.FredActive > i {
+    color: var(--gray-medium) !important;
+}
+
+a#FredToggleContainerLink.FredActive > i {
+    color: var(--primary-color) !important;
+}
+
+a.ShowBindParameters {
+    font-size: inherit;
+}

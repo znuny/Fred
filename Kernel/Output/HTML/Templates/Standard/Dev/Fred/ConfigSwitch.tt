@@ -1,0 +1,38 @@
+# --
+# Copyright (C) 2001-2021 OTRS AG, https://otrs.com/
+# Copyright (C) 2012 Znuny GmbH, https://znuny.com/
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+<div class="FredBox">
+    <h1>
+        [% Translate("Configuration Switch") | html %]
+        <span class="FredToolBar">
+            <i class="fa fa-search FredSearch" title="Toggle Search Bar"></i>
+            <i class="fa fa-minus FredMinimize" title="Minimize"></i>
+            <i class="fa fa-times FredClose" title="Close"></i>
+        </span>
+    </h1>
+    <div class="FredBoxContent" id="FredConfigSwitch">
+        <div class="FredQuickSearch">
+            <input type="text" placeholder="Search for..." />
+            <i class="fa fa-times"></i>
+        </div>
+        <table class="FredTableDefault FredSwitchTable">
+        [% FOREACH Item IN Data.ConfigItems %]
+            <tr>
+                <td class="FredSwitch [% IF Item.Value == 1 %]On[% END %]">
+                    <a href="#" data-key="[% Item.Key | html %]" data-value="[% Item.Value | html %]" title="Switch this setting"><span></span></a>
+                </td>
+                <td>[% Item.Key | html %]</td>
+            </tr>
+        [% END %]
+            <tr class="Hidden FilterMessage">
+                <td colspan="4">No Items found.</td>
+            </tr>
+        </table>
+    </div>
+</div>
