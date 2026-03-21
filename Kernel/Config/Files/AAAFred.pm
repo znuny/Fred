@@ -34,13 +34,16 @@ sub Load {
 
     if ( $ENV{HTTP_USER_AGENT} ) {
 
+        # Fred###LogPath (relative to Home or absolute); fallback: var/log/dev/Fred/
+        my $LogPath = $Self->{Fred}->{LogPath} // 'var/log/dev/Fred/';
+        my $Path    = $Self->{Home} . $LogPath;
+
         # check if the needed path is available
-        my $Path = $Self->{Home} . '/var/log/dev/fred';
         if ( !-e $Path ) {
             mkdir $Path;
         }
 
-        my $File = $Self->{Home} . '/var/log/dev/fred/STDERR.log';
+        my $File = $Path . 'STDERR.log';
 
         if ( -f $File ) {
 

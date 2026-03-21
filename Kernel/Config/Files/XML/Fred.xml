@@ -118,7 +118,7 @@
         <Navigation>Dev::Fred</Navigation>
         <Value>
             <Hash>
-                <Item Key="Active">1</Item>
+                <Item Key="Active">0</Item>
                 <Item Key="Prio">3000</Item>
                 <Item Key="Description">Logs out all session variables.</Item>
             </Hash>
@@ -145,7 +145,7 @@
         <Navigation>Dev::Fred</Navigation>
         <Value>
             <Hash>
-                <Item Key="Active">1</Item>
+                <Item Key="Active">0</Item>
                 <Item Key="Prio">5000</Item>
                 <Item Key="Description">Lists all configuration items which were used in this call (and how often they were called).</Item>
                 <Item Key="Config">
@@ -165,7 +165,7 @@
         <Navigation>Dev::Fred</Navigation>
         <Value>
             <Hash>
-                <Item Key="Active">1</Item>
+                <Item Key="Active">0</Item>
                 <Item Key="Prio">6000</Item>
                 <Item Key="Description">Shows a list of all SQL statements executed in this call.</Item>
             </Hash>
@@ -176,7 +176,7 @@
         <Navigation>Dev::Fred</Navigation>
         <Value>
             <Hash>
-                <Item Key="Active">1</Item>
+                <Item Key="Active">0</Item>
                 <Item Key="Prio">7000</Item>
                 <Item Key="Description">Validates the HTML in this call.</Item>
             </Hash>
@@ -187,7 +187,7 @@
         <Navigation>Dev::Fred</Navigation>
         <Value>
             <Hash>
-                <Item Key="Active">1</Item>
+                <Item Key="Active">0</Item>
                 <Item Key="Prio">9000</Item>
                 <Item Key="Description">Shows a list of untranslated strings. Please note that strings from framework AND custom modules will be shown.</Item>
             </Hash>
