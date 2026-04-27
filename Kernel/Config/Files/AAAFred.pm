@@ -17,6 +17,8 @@ use strict;
 use warnings;
 use utf8;
 
+use File::Spec;
+
 no warnings 'redefine';    ## no critic
 
 use vars qw($Self);
@@ -34,16 +36,16 @@ sub Load {
 
     if ( $ENV{HTTP_USER_AGENT} ) {
 
-        # Fred###LogPath (relative to Home or absolute); fallback: var/log/dev/Fred/
-        my $LogPath = $Self->{Fred}->{LogPath} // 'var/log/dev/Fred/';
-        my $Path    = $Self->{Home} . $LogPath;
+        # Fred###LogPath (relative to Home or absolute); fallback: var/log/dev/Fred
+        my $LogPath = $Self->{Fred}->{LogPath} // 'var/log/dev/Fred';
+        my $Path    = File::Spec->catdir( $Self->{Home}, $LogPath );
 
         # check if the needed path is available
         if ( !-e $Path ) {
             mkdir $Path;
         }
 
-        my $File = $Path . 'STDERR.log';
+        my $File = File::Spec->catfile( $Path, 'STDERR.log' );
 
         if ( -f $File ) {
 

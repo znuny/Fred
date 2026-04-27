@@ -15,6 +15,8 @@ use strict;
 use warnings;
 use utf8;
 
+use File::Spec;
+
 our @ObjectDependencies = (
     'Kernel::Config',
 );
@@ -41,10 +43,10 @@ sub Init {
     my %Config;
 
     $Config{LogFileName} = 'Config.log';
-    $Config{LogFile}     = $Self->{Home} . $Self->{LogPath} . 'Config.log';
+    $Config{LogFile}     = File::Spec->catfile( $Self->{LogDir}, 'Config.log' );
 
     # check if the needed path is available
-    my $Path = $Self->{Home} . $Self->{LogPath};
+    my $Path = $Self->{LogDir};
     if ( !-e $Path ) {
         File::Path::mkpath( $Path, 0, 0777 );    ## no critic
     }

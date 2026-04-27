@@ -12,6 +12,8 @@ use strict;
 use warnings;
 use utf8;
 
+use File::Spec;
+
 our @ObjectDependencies = (
     'Kernel::Config',
 );
@@ -45,9 +47,16 @@ sub new {
 
     my $Config = $ConfigObject->GetOriginal('Fred') || {};
 
-    $Self->{Home}        = $ConfigObject->GetOriginal('Home');
-    $Self->{LogPath}     = $Config->{LogPath} || '/var/log/dev/Fred/';
+    $Self->{Home}    = $ConfigObject->GetOriginal('Home');
+    $Self->{LogPath} = $Config->{LogPath} || '/var/log/dev/Fred/';
+
+    # Remove *(Log) from the end of the module name
+    $Self->{Name} =~ s{(.*)Log$}{$1};
     $Self->{LogFileName} = "$Self->{Name}.log";
+
+    # Ensure proper path joining: Home + LogPath (avoids /opt/znuny + var => /opt/znunyvar)
+    $Self->{LogDir}  = File::Spec->catdir( $Self->{Home}, $Self->{LogPath} );
+    $Self->{LogFile} = File::Spec->catfile( $Self->{LogDir}, $Self->{LogFileName} );
 
     my $ModuleInit = $Self->Init();
 
@@ -64,9 +73,8 @@ sub new {
         $Self->{Active}      = $Config->{Module}->{ $Self->{Name} }->{Active};
         $Self->{Config}      = $Config->{Module}->{ $Self->{Name} }->{Config};
         $Self->{LogFileName} = $Config->{Module}->{ $Self->{Name} }->{LogFileName} || $Self->{LogFileName};
+        $Self->{LogFile}     = File::Spec->catfile( $Self->{LogDir}, $Self->{LogFileName} );
     }
-
-    $Self->{LogFile} = $Self->{Home} . $Self->{LogPath} . $Self->{LogFileName};
 
     return $Self;
 }

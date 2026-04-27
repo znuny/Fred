@@ -15,6 +15,7 @@ use strict;
 use warnings;
 use utf8;
 
+use File::Spec;
 use IO::Handle;
 
 our @ObjectDependencies = (
@@ -38,10 +39,10 @@ sub Init {
     my %Config;
 
     $Config{LogFileName} = 'STDERR.log';
-    $Config{LogFile}     = $Self->{Home} . $Self->{LogPath} . 'STDERR.log';
+    $Config{LogFile}     = $Self->{LogFile};
 
     # check if the needed path is available
-    my $Path = $Self->{Home} . $Self->{LogPath};
+    my $Path = $Self->{LogDir};
     if ( !-e $Path ) {
         File::Path::mkpath( $Path, 0, 0777 );    ## no critic
     }
@@ -91,7 +92,7 @@ sub DataGet {
     # open the STDERR.log file to get the STDERR messages
     my $Filehandle;
 
-    $Self->{LogFile} = $Self->{Home} . $Self->{LogPath} . 'STDERR.log';
+    $Self->{LogFile} = File::Spec->catfile( $Self->{LogDir}, 'STDERR.log' );
 
     if ( !open $Filehandle, '<:encoding(UTF-8)', $Self->{LogFile} ) {    ## no critic
         $Param{ModuleRef}->{Data} = [

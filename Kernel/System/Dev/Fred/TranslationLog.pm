@@ -36,10 +36,10 @@ sub Init {
     my %Config;
 
     $Config{LogFileName} = 'Translation.log';
-    $Config{LogFile}     = $Self->{Home} . $Self->{LogPath} . 'Translation.log';
+    $Config{LogFile}     = $Self->{LogFile};
 
     # check if the needed path is available
-    my $Path = $Self->{Home} . $Self->{LogPath};
+    my $Path = $Self->{LogDir};
     if ( !-e $Path ) {
         File::Path::mkpath( $Path, 0, 0777 );    ## no critic
     }
