@@ -15,7 +15,7 @@ Fred is a developer tool for Znuny that supports you during development.
 
 **Vendor:** Znuny GmbH
 **License:** GNU AFFERO GENERAL PUBLIC LICENSE Version 3
-**Supported Frameworks:** Znuny 6.0.x, 6.4.x, 6.5.x, 7.0.x, 7.1.x, 7.2.x, 7.3.x
+**Supported Frameworks:** Znuny 6.0.x, 6.4.x, 6.5.x, 7.0.x, 7.1.x, 7.2.x, 7.3.x, 7.5.x
 
 ---
 

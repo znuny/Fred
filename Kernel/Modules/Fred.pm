@@ -62,6 +62,7 @@ sub Run {
         delete $ModuleForRef->{Console};
 
         # loop over Modules which can be activated and deactivated
+        MODULE:
         for my $Module ( sort keys %{$ModuleForRef} ) {
             my $Checked = $ModuleForRef->{$Module}->{Active} ? 'checked="checked"' : '';
             $LayoutObject->Block(
@@ -74,14 +75,14 @@ sub Run {
             );
 
             # Provide a link to the SysConfig only for plugins that have config options
-            if ( $ConfigObject->Get("Fred")->{Module}->{$Module} ) {
-                $LayoutObject->Block(
-                    Name => 'Config',
-                    Data => {
-                        ModuleName => $Module,
-                    }
-                );
-            }
+            next MODULE if !$ConfigObject->Get("Fred")->{Module}->{$Module};
+
+            $LayoutObject->Block(
+                Name => 'Config',
+                Data => {
+                    ModuleName => $Module,
+                }
+            );
         }
 
         # build output
@@ -110,25 +111,24 @@ sub Run {
         my $UpdateFlag;
         delete $ModuleForRef->{Console};
 
+        MODULE:
         for my $Module ( sort keys %{$ModuleForRef} ) {
 
-            # update the sysconfig settings
-            if (
-                $ModuleForRef->{$Module}->{Active} && !$SelectedModules{$Module}
-                ||
-                !$ModuleForRef->{$Module}->{Active} && $SelectedModules{$Module}
-                )
-            {
-                # update certain values
-                $ModuleForRef->{$Module}->{Active} = $SelectedModules{$Module} || 0;
+            # update the sysconfig settings only if the active state changed
+            my $IsActive   = $ModuleForRef->{$Module}->{Active} ? 1 : 0;
+            my $IsSelected = $SelectedModules{$Module}          ? 1 : 0;
 
-                $Self->_SettingUpdate(
-                    Valid => 1,
-                    Key   => "Fred###Module###$Module",
-                    Value => $ModuleForRef->{$Module},
-                );
-                $UpdateFlag = 1;
-            }
+            next MODULE if $IsActive == $IsSelected;
+
+            # update certain values
+            $ModuleForRef->{$Module}->{Active} = $SelectedModules{$Module} || 0;
+
+            $Self->_SettingUpdate(
+                Valid => 1,
+                Key   => "Fred###Module###$Module",
+                Value => $ModuleForRef->{$Module},
+            );
+            $UpdateFlag = 1;
         }
 
         return $LayoutObject->PopupClose(

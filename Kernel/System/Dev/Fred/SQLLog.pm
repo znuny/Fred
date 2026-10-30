@@ -98,9 +98,9 @@ sub DataGet {
             $DoStatements++;
         }
 
-        if ( $SplitLogLine[4] ) {
-            $Param{ModuleRef}->{Time} += $SplitLogLine[4];
-        }
+        next LINE if !$SplitLogLine[4];
+
+        $Param{ModuleRef}->{Time} += $SplitLogLine[4];
     }
 
     pop @LogMessages;
@@ -190,7 +190,7 @@ sub PostStatement {
     my @StackTrace;
 
     COUNT:
-    for ( my $Count = 1; $Count < 30; $Count++ ) {
+    for my $Count ( 1 .. 29 ) {
         my ( $Package1, $Filename1, $Line1, $Subroutine1 ) = caller($Count);
         last COUNT if !$Line1;
         my ( $Package2, $Filename2, $Line2, $Subroutine2 ) = caller( 1 + $Count );
