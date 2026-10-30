@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Fred</Name>
-    <Version>7.5.0</Version>
+    <Version>7.5.1</Version>
     <Framework>7.5.x</Framework>
     <Vendor>Znuny GmbH</Vendor>
     <URL>http://znuny.com/</URL>
@@ -9,6 +9,7 @@
     <Description Lang="en">A tool to help the developer during development.</Description>
     <Description Lang="de">Ein Werkzeug welches den Entwickler bei der Entwicklung unterstützen soll.</Description>
     <Description Lang="hu">Egy eszköz a fejlesztők munkájának támogatásához.</Description>
+    <ChangeLog Version="7.5.1" Date="2026-10-30 21:52:25 +0100">Initial release for Znuny 7.5.</ChangeLog>
     <Filelist>
         <File Permission="660" Location="Kernel/Config/Files/AAAFred.pm"/>
         <File Permission="660" Location="Kernel/Config/Files/XML/Fred.xml"/>
